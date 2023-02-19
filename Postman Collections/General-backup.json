@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "0683b3d1-b23c-475c-a2d6-ff8271009d27",
+		"name": "General",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Without Authorization",
+					"item": [
+						{
+							"name": "unauthorized endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "303c96a8-4a62-4cbc-b4e4-17c2a15b0cc2",
+										"exec": [
+											"pm.test(\"Sending unauthorized endpoint should return 200 \",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "496d98b9-47e5-45ac-a886-e8fef5f3c650",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test"
+							},
+							"response": []
+						},
+						{
+							"name": "Authorized endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "23e0dc99-0b7e-43d9-8035-e018786f431a",
+										"exec": [
+											"pm.test(\"Sending unauthorized request to authorized endpoint should return 401 \",function(){\r",
+											"    pm.response.to.have.status(401);\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "5fe9ab6a-e1c2-4a23-9f49-b98578dd4057",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test/Authorized"
+							},
+							"response": []
+						},
+						{
+							"name": "Admin endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "71ec3400-fcbb-4b73-9cec-6a1add7d59dc",
+										"exec": [
+											"pm.test(\"Sending unauthorized request to admin endpoint should return 401 \",function(){\r",
+											"    pm.response.to.have.status(401);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "2b60745b-764b-4175-bf89-e1163baeff96",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test/admin"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "b07f0bcc-6139-4154-9251-3ed0cd80ee26",
+					"auth": {
+						"type": "noauth"
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2d6c4428-dabf-4c63-91b3-2cdac3e6936b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8dbdc50e-7288-4345-b435-3d83f48518eb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "With common authorization",
+					"item": [
+						{
+							"name": "unauthorized endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "303c96a8-4a62-4cbc-b4e4-17c2a15b0cc2",
+										"exec": [
+											"pm.test(\"Sending unauthorized endpoint should return 200 \",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "8d1af5a6-152b-4a16-b3ef-ece8957e681e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test"
+							},
+							"response": []
+						},
+						{
+							"name": "Authorized endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "23e0dc99-0b7e-43d9-8035-e018786f431a",
+										"exec": [
+											"pm.test(\"Sending unauthorized request to authorized endpoint should return 200 \",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "6b46fa66-3287-4723-909b-91b2ab936bdf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test/Authorized"
+							},
+							"response": []
+						},
+						{
+							"name": "Admin endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "71ec3400-fcbb-4b73-9cec-6a1add7d59dc",
+										"exec": [
+											"pm.test(\"Sending unauthorized request to admin endpoint should return 403 \",function(){\r",
+											"    pm.response.to.have.status(403);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "46ca699b-8341-49da-ac58-79f8c0f51fd2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test/admin"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "81fbc980-9f9e-4080-8e55-daad1597383f",
+					"auth": {
+						"type": "oauth2",
+						"oauth2": {
+							"accessTokenUrl": "localhost:5001/connect/token",
+							"password": "password",
+							"username": "bob",
+							"clientSecret": "secret",
+							"clientId": "client",
+							"grant_type": "password_credentials",
+							"tokenName": "BobToken",
+							"addTokenTo": "header"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3dbea2a6-cb1c-4228-b8be-b5d06e82c9a5",
+								"type": "text/javascript",
+								"exec": [
+									"pm.sendRequest(",
+									"    {",
+									"        url: pm.environment.get(IsTokenUrl),",
+									"        method: \"post\",",
+									"        header: {",
+									"            \"content-type\": \"application/x-www-form-urlencoded\"",
+									"        },",
+									"        body: {",
+									"            mode: \"urlencoded\",",
+									"            urlencoded: ",
+									"        }",
+									"    }",
+									")"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "835193f3-a4e2-4091-bfd8-bfd81f71c551",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "With admin authorization",
+					"item": [
+						{
+							"name": "unauthorized endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "303c96a8-4a62-4cbc-b4e4-17c2a15b0cc2",
+										"exec": [
+											"pm.test(\"Sending admin request endpoint should return 200 \",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "38c3e751-500d-41b1-8011-d04dec327d07",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test"
+							},
+							"response": []
+						},
+						{
+							"name": "Authorized endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "23e0dc99-0b7e-43d9-8035-e018786f431a",
+										"exec": [
+											"pm.test(\"Sending admin request to authorized endpoint should return 200 \",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "32327f3b-446c-41ab-b643-1f7dcde89678",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test/Authorized"
+							},
+							"response": []
+						},
+						{
+							"name": "Admin endpoint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "71ec3400-fcbb-4b73-9cec-6a1add7d59dc",
+										"exec": [
+											"pm.test(\"Sending admin request to admin endpoint should return 200 \",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "23a7803b-e49e-4c5b-9804-cdd6ca83434f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BaseApiUrl}}/Test/admin"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "a1bc5877-89bb-4700-b049-eff8b48614de",
+					"auth": {
+						"type": "oauth2",
+						"oauth2": {
+							"password": "password",
+							"username": "Alice",
+							"tokenName": "AliceToken",
+							"accessTokenUrl": "localhost:5001/connect/token",
+							"clientSecret": "secret",
+							"clientId": "client",
+							"grant_type": "password_credentials",
+							"addTokenTo": "header"
+						}
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6b24369b-5bee-4096-a9be-3e5c4d25f305",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e3aa91c3-e2dc-43b6-92b7-9b22c50e3f9b",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"_postman_id": "e2071e56-8bd2-4e90-9b38-b27c1159fbf4"
+		}
+	]
+}
